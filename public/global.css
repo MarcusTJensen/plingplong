@@ -1,0 +1,234 @@
+:root {
+	--black: #0a0a0c;
+	--red: #c1192a;
+}
+
+.color-black {
+	color: var(--black);
+}
+
+.bg-black {
+	background-color: var(--black);
+}
+
+.bg-white {
+	background-color: white;
+}
+
+.selected {
+	border: 2px solid var(--red);
+	border-radius: 5px;
+	color: var(--black);
+	background-color: var(--red);
+	font-weight: 700;
+}
+
+.bg-red {
+	background-color: var(--red);
+}
+
+.color-red { 
+	color: var(--red);
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.align-start {
+	align-items: flex-start;
+}
+
+.align-end {
+	align-items: flex-end;
+}
+
+.justify-end {
+	justify-content: flex-end;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-start {
+	justify-content: flex-start;
+}
+
+.border {
+	border: 2px solid var(--red);
+}
+
+.border-left {
+	border-left: 2px solid var(--red);
+}
+
+.border-top {
+	border-top: 4px solid var(--red);
+}
+
+.border-right {
+	border-right: 2px solid var(--red);
+}
+
+.border-bottom {
+	border-bottom: 2px solid var(--red);
+}
+
+.rounded {
+	border-radius: 5px;
+}
+
+.rounded-top-left {
+	border-top-left-radius: 3px;
+}
+
+.rounded-bottom-left {
+	border-bottom-left-radius: 3px;
+}
+
+.rounded-top-right {
+	border-top-right-radius: 3px;
+}
+
+.rounded-bottom-right {
+	border-bottom-right-radius: 3px;
+}
+
+.bg-white {
+	background-color: white;
+}
+
+.padding-0-5 {
+	padding: 0.5em;
+}
+
+.padding-b-0-5 {
+	padding-bottom: 0.5em;
+}
+
+.margin-l-0-5 {
+	margin-left: 0.5em;
+}
+
+.padding-b-2 {
+	padding-bottom: 2em;
+}
+
+.padding-t-0-5 {
+	padding-top: 0.5em;
+}
+
+.w-50 {
+	width: 50%;
+}
+
+.w-70 {
+	width: 70%;
+}
+
+.w-full {
+	width: 100%;
+}
+
+.w-1 {
+	width: 1em;
+}
+
+.h-1 {
+	height: 1em;
+}
+
+.flex-1 {
+	flex: 1;
+}
+
+.flex-0-5 {
+	flex: 0.2;
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+html, body {
+	background-color: var(--black);
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	color: #333;
+	margin: 0;
+	padding: 8px;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+a {
+	color: rgb(0,100,200);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: rgb(0,80,160);
+}
+
+label {
+	display: block;
+}
+
+input, button, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+	-webkit-padding: 0.4em 0;
+	padding: 0.4em;
+	margin: 0 0 0.5em 0;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+}
+
+input:disabled {
+	color: #ccc;
+}
+
+button {
+	color: #333;
+	background-color: #f4f4f4;
+	outline: none;
+}
+
+button:disabled {
+	color: #999;
+}
+
+button:not(:disabled):active {
+	background-color: #ddd;
+}
+
+button:focus {
+	border-color: #666;
+}
+
+.w-2 {
+	width: 2rem;
+}
+
+.h-2 {
+	height: 2rem;
+}
