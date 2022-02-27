@@ -48,15 +48,15 @@
 	<h1>Ping Pong</h1>
 	<div class="flex-col align-center justify-center w-70 rounded">
 		<div class="flex w-full align-center justify-center padding-b-2">
-			<span on:click={() => view = "scoreboard"} class:selected={view === "scoreboard"} class:color-red={view !== "scoreboard"} class="flex flex-1 h-2 justify-center align-center cursor-pointer">Scoreboard</span>
-			<span on:click={() => view = "player"} class:selected={view === "player"} class:color-red={view !== "player"} class="flex flex-1 h-2 justify-center align-center cursor-pointer">Add new player</span>
-			<span on:click={() => view = "match"} class:selected={view === "match"} class:color-red={view !== "match"} class="flex flex-1 h-2 justify-center align-center cursor-pointer">Register match</span>
+			<span on:click={() => view = "scoreboard"} class:selected={view === "scoreboard"} class:color-red={view !== "scoreboard"} class="flex flex-1 h-2 justify-center align-center cursor-pointer">Resultattavle</span>
+			<span on:click={() => view = "player"} class:selected={view === "player"} class:color-red={view !== "player"} class="flex flex-1 h-2 justify-center align-center cursor-pointer">Legg til spiller</span>
+			<span on:click={() => view = "match"} class:selected={view === "match"} class:color-red={view !== "match"} class="flex flex-1 h-2 justify-center align-center cursor-pointer">Registrer kamp</span>
 		</div>
 		{#if view === "scoreboard"}
 			<div class="flex w-full align-center justify-center padding-t-0-5 padding-b-0-5">
-				<span class="flex-1 color-red"><strong>Player</strong></span>
+				<span class="flex-1 color-red"><strong>Spiller</strong></span>
 				<span class="flex-1 color-red"><strong>Elo</strong></span>
-				<span class="flex-1 color-red"><strong>Rank/title</strong></span>
+				<span class="flex-1 color-red"><strong>Rang/tittel</strong></span>
 			</div>
 			<div class="w-full rounded border">
 				{#each players.sort((a, b) => b.elo - a.elo) as player, i}
@@ -70,7 +70,7 @@
 		{/if}
 		{#if view === "player"}
 			<div class="flex w-full align-center justify-center padding-t-0-5 padding-b-0-5">
-				<input placeholder="Username" class="h-2 flex-1 flex align-center justify-center bg-black color-red rounded border" bind:value={username}>
+				<input placeholder="Brukernavn" class="h-2 flex-1 flex align-center justify-center bg-black color-red rounded border" bind:value={username}>
 				<input placeholder="Alias" class="h-2 flex-1 flex align-center justify-center margin-l-0-5 bg-black color-red rounded border" bind:value={alias}>
 				<button class="h-2 flex align-center justify-center bg-white color-red rounded border margin-l-0-5">SMASH! <TableTennisSolid /></button>
 			</div>
@@ -78,10 +78,10 @@
 		{#if view === "match"}
 			<div class="flex w-full align-center justify-center padding-t-0-5 padding-b-0-5">
 				<input placeholder="Server" class="h-2 flex-1 flex align-center justify-center bg-black color-red rounded border" bind:value={server}>
-				<input placeholder="Receiver" class="h-2 flex-1 flex align-center justify-center margin-l-0-5 bg-black color-red rounded border" bind:value={receiver}>
+				<input placeholder="Mottaker" class="h-2 flex-1 flex align-center justify-center margin-l-0-5 bg-black color-red rounded border" bind:value={receiver}>
 			</div>
 			<div class="flex w-full align-center justify-start">
-				<span class="h-2 color-red">Number of games in match: </span>
+				<span class="h-2 color-red">Antall spill i kampen: </span>
 				<select bind:value={numOfGames} class="bg-white color-red margin-l-0-5">
 					<option value={1}>1</option>
 					<option value={2}>2</option>
@@ -92,9 +92,9 @@
 			</div>
 				{#each Array(numOfGames) as game, i}
 				<div class="flex w-full align-center justify-center">
-					<span class="h-2 color-red flex-0-5 flex"><strong>Game {i + 1}:</strong></span>
-					<input on:change={(e) => addServerScore(i, e.target.value)} placeholder="Points server" class="h-2 flex-1 flex align-center justify-center bg-black color-red rounded border">
-					<input on:change={(e) => addReceiverScore(i, e.target.value)} placeholder="Points receiver" class="h-2 flex-1 flex align-center justify-center margin-l-0-5 bg-black color-red rounded border">
+					<span class="h-2 color-red flex-0-5 flex"><strong>Spill {i + 1}:</strong></span>
+					<input on:change={(e) => addServerScore(i, e.target.value)} placeholder="Poeng server" class="h-2 flex-1 flex align-center justify-center bg-black color-red rounded border">
+					<input on:change={(e) => addReceiverScore(i, e.target.value)} placeholder="Poeng mottaker" class="h-2 flex-1 flex align-center justify-center margin-l-0-5 bg-black color-red rounded border">
 				</div>
 				{/each}
 			<div class="flex w-full align-end justify-end">
