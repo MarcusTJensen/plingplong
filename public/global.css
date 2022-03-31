@@ -1,14 +1,25 @@
 :root {
-	--black: #0a0a0c;
-	--red: #c1192a;
+	--blue: #507ab1;
+	--yellow: #e8b427;
+	--green: #34ff45;
+	--white: white;
+	--black: #282b36;
+}
+
+.color-green {
+	color: var(--green);
+}
+
+.color-blue {
+	color: var(--blue);
 }
 
 .color-black {
 	color: var(--black);
 }
 
-.bg-black {
-	background-color: var(--black);
+.bg-blue {
+	background-color: var(--blue);
 }
 
 .bg-white {
@@ -16,19 +27,19 @@
 }
 
 .selected {
-	border: 2px solid var(--red);
+	border: 2px solid var(--yellow);
 	border-radius: 5px;
-	color: var(--black);
-	background-color: var(--red);
+	color: var(--white);
+	background-color: var(--yellow);
 	font-weight: 700;
 }
 
 .bg-red {
-	background-color: var(--red);
+	background-color: var(--yellow);
 }
 
-.color-red { 
-	color: var(--red);
+.color-yellow { 
+	color: var(--yellow);
 }
 
 .flex {
@@ -65,23 +76,27 @@
 }
 
 .border {
-	border: 2px solid var(--red);
+	border: 2px solid var(--yellow);
+}
+
+.border-black {
+	border: 2px solid var(--black)
 }
 
 .border-left {
-	border-left: 2px solid var(--red);
+	border-left: 2px solid var(--yellow);
 }
 
 .border-top {
-	border-top: 4px solid var(--red);
+	border-top: 4px solid var(--yellow);
 }
 
 .border-right {
-	border-right: 2px solid var(--red);
+	border-right: 2px solid var(--yellow);
 }
 
 .border-bottom {
-	border-bottom: 2px solid var(--red);
+	border-bottom: 2px solid var(--yellow);
 }
 
 .rounded {
@@ -100,8 +115,21 @@
 	border-top-right-radius: 3px;
 }
 
+.jan-ove {
+	width: 120px;
+	height: 100px;
+}
+
 .rounded-bottom-right {
 	border-bottom-right-radius: 3px;
+}
+
+.margin-b-3 {
+	margin-bottom: 3%;
+}
+
+.margin-r-0-5 {
+	margin-right: 0.5em;
 }
 
 .bg-white {
@@ -161,14 +189,14 @@
 }
 
 html, body {
-	background-color: var(--black);
+	background-color: var(--blue);
 	position: relative;
 	width: 100%;
 	height: 100%;
 }
 
 body {
-	color: #333;
+	color: var(--yellow);
 	margin: 0;
 	padding: 8px;
 	box-sizing: border-box;
@@ -231,4 +259,12 @@ button:focus {
 
 .h-2 {
 	height: 2rem;
+}
+
+::placeholder {
+	color: rgb(209, 208, 208);
+}
+
+.color-white {
+	color: var(--white);
 }

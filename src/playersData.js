@@ -22,6 +22,12 @@ const players = [
         alias: "The messiah",
         elo: 1554.298701,
         title: "Grandmaster"
+    },
+    {
+        username: "player 5",
+        alias: "Horn med ost og skinke",
+        elo: 5001,
+        title: "Grandmaster"
     }
 ];
 
