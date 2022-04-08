@@ -76,14 +76,14 @@
 <main>
 	<div class="flex w-full align-center justify-center margin-b-3">
 		<img class="jan-ove margin-r-0-5" {src} alt="Jan Ove">
-		<h1><strong>Ping Pong</strong></h1>
+		<h1 class="font-bold">Ping Pong</h1>
 		<img class="jan-ove margin-l-0-5" {src} alt="Jan Ove" style="transform: scaleX(-1)">
 	</div>
 	<div class="flex-col align-center justify-center w-70 rounded">
 		<div class="flex w-full align-center justify-center padding-b-2">
-			<span on:click={() => view = "scoreboard"} class:selected={view === "scoreboard"} class:color-yellow={view !== "scoreboard"} class="flex flex-1 h-2 justify-center align-center cursor-pointer">Resultattavle</span>
-			<span on:click={() => view = "player"} class:selected={view === "player"} class:color-yellow={view !== "player"} class="flex flex-1 h-2 justify-center align-center cursor-pointer">Legg til spiller</span>
-			<span on:click={() => view = "match"} class:selected={view === "match"} class:color-yellow={view !== "match"} class="flex flex-1 h-2 justify-center align-center cursor-pointer">Registrer kamp</span>
+			<span on:click={() => view = "scoreboard"} class:selected={view === "scoreboard"} class:color-yellow={view !== "scoreboard"} class="flex flex-1 h-12 justify-center align-center cursor-pointer">Resultattavle</span>
+			<span on:click={() => view = "player"} class:selected={view === "player"} class:color-yellow={view !== "player"} class="flex flex-1 h-12 justify-center align-center cursor-pointer">Legg til spiller</span>
+			<span on:click={() => view = "match"} class:selected={view === "match"} class:color-yellow={view !== "match"} class="flex flex-1 h-12 justify-center align-center cursor-pointer">Registrer kamp</span>
 		</div>
 		{#if view === "scoreboard"}
 			<div class="flex w-full align-center justify-center padding-t-0-5 padding-b-0-5">
@@ -91,21 +91,21 @@
 				<span class="flex-1 color-yellow"><strong>Elo</strong></span>
 				<span class="flex-1 color-yellow"><strong>Utmerkelser</strong></span>
 			</div>
-			<div class="w-full rounded border">
+			<div class="w-full rounded border-2 border-yellow">
 				{#each players.sort((a, b) => b.elo - a.elo) as player, i}
 					<div class="flex w-full align-center justify-center">
 						<span class:rounded-top-left={i === 0} class:rounded-bottom-left={i === (players.length - 1)} 
-							class:border-bottom={i !== (players.length - 1)}  
-							class="flex justify-start color-black align-start bg-white padding-0-5 flex-1">
+							class:border-b-2={i !== (players.length - 1)}  
+							class="flex justify-start color-black align-start bg-white padding-0-5 flex-1 border-yellow">
 							<strong>{player.alias}</strong> ({player.username})
 						</span>
-						<span class:border-bottom={i !== (players.length - 1)} 
-							class="flex justify-start color-black align-start bg-white padding-0-5 flex-1 border-left">
+						<span class:border-b-2={i !== (players.length - 1)} 
+							class="flex justify-start color-black align-start bg-white padding-0-5 flex-1 border-l-2 border-yellow">
 							{player.elo}
 						</span>
 						<span class:rounded-top-right={i === 0} class:rounded-bottom-right={i === (players.length - 1)} 
-							class:border-bottom={i !== (players.length - 1)} 
-							class="flex justify-start color-black align-start bg-white padding-0-5 flex-1 border-left">
+							class:border-b-2={i !== (players.length - 1)} 
+							class="flex justify-start color-black align-start bg-white padding-0-5 flex-1 border-l-2 border-yellow">
 							{player.title}
 						</span>
 					</div>
@@ -113,26 +113,26 @@
 			</div>
 		{/if}
 		{#if view === "player"}
-			<div class="flex w-full align-center justify-center padding-t-0-5 padding-b-0-5">
-				<input placeholder="Brukernavn" class="h-2 flex-1 flex align-center justify-center bg-blue color-white rounded border" bind:value={$username}>
-				<input placeholder="Alias" class="h-2 flex-1 flex align-center justify-center margin-l-0-5 bg-blue color-white rounded border" bind:value={$alias}>
+			<div class="flex w-full content-center justify-center padding-t-0-5 padding-b-0-5">
+				<input placeholder="Brukernavn" class="h-8 flex-1 flex content-center justify-center bg-blue color-white rounded border-2 border-yellow" bind:value={$username}>
+				<input placeholder="Alias" class="h-8 flex-1 flex content-center justify-center ml-2 bg-blue color-white rounded border-2 border-yellow" bind:value={$alias}>
 				<CustomNotification />
 			</div>
 		{/if}
 		{#if view === "match"}
 			<div class="flex w-full align-center justify-center padding-t-0-5 padding-b-0-5">
-				<input placeholder="Server" class="h-2 flex-1 flex align-center justify-center bg-blue color-white rounded border" bind:value={server}>
-				<input placeholder="Mottaker" class="h-2 flex-1 flex align-center justify-center margin-l-0-5 bg-blue color-white rounded border" bind:value={receiver}>
+				<input placeholder="Server" class="h-8 flex-1 flex content-center justify-center bg-blue color-white rounded border-2 border-yellow" bind:value={server}>
+				<input placeholder="Mottaker" class="h-8 flex-1 flex content-center justify-center ml-2 bg-blue color-white rounded border-2 border-yellow" bind:value={receiver}>
 			</div>
 				{#each Array(numOfGames) as game, i}
 				<div class="flex w-full align-center justify-center">
-					<span class="h-2 color-yellow flex-0-5 flex"><strong>Spill {i + 1}:</strong></span>
+					<span class="h-8 color-yellow flex-0-5 flex"><strong>Spill {i + 1}:</strong></span>
 					<input on:change={(e) => addServerScore(i, e.target.value)} 
 						placeholder={`Poeng ${server ? i % 2 === 0 ? server : receiver : 'server'}`} 
-						class="h-2 flex-1 flex align-center justify-center bg-blue color-white rounded border">
+						class="h-8 flex-1 flex align-center justify-center bg-blue color-white rounded border">
 					<input on:change={(e) => addReceiverScore(i, e.target.value)} 
 						placeholder={`Poeng ${receiver ? i % 2 === 0 ? receiver : server : 'mottaker'}`} 
-						class="h-2 flex-1 flex align-center justify-center margin-l-0-5 bg-blue color-white rounded border">
+						class="h-8 flex-1 flex align-center justify-center margin-l-0-5 bg-blue color-white rounded border">
 				</div>
 				{/each}
 			<div class="flex w-full align-center justify-start">
@@ -151,6 +151,9 @@
 </Notifications>
 
 <style>
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
 	main {
 		text-align: center;
 		padding: 1em;
